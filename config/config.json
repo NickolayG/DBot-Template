@@ -1,0 +1,45 @@
+{
+    "bot": {
+        "clientId": "1292668116135841902"
+    },
+    "development": {
+        "dev_clientId": "272001820681830401",
+        "errorLog": {
+            "reportGuildId": "",
+            "reportChannelId": ""
+        }
+    },
+    "modules": {
+        "enableWelcomeMessageDM": true,
+        "logging": true
+    },
+    "logging": {
+        "memberJoinLeave": {
+            "enabled": true,
+            "channelId": "1292904791961374821"
+        }
+    },
+    "welcomeMessageDM": {
+        "message": {
+            "enabled": false,
+            "content": "Welcome"
+        },
+        "embed": {
+            "enabled": true,
+            "color": "",
+            "title": "Welcome to World of Nic",
+            "description": "Enjoy your time in the server",
+            "thumbnail": "http://severation.site.nfoservers.com/media/severation/logo.png"
+        }
+    },
+    "defaultEmbed": {
+        "colors": {
+            "primary": "#FF000",
+            "info": "#FF000",
+            "warn": "#FF000",
+            "error": "#FF000"
+        },
+        "thumbnail": "http://severation.site.nfoservers.com/media/severation/logo.png",
+        "image": "http://severation.site.nfoservers.com/media/severation/logo.png"
+    }
+}
