@@ -22,3 +22,7 @@ const { intializeButtons } = require('./structure/handlers/buttonHandler.js');
 intializeButtons(client);
 
 client.login(process.env.DISCORD_TOKEN);
+
+module.exports = {
+    client: client
+}

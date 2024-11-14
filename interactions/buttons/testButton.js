@@ -7,14 +7,15 @@ const button = new ButtonBuilder()
         .setStyle(ButtonStyle.Success);
 
 module.exports = {
+    // Basic Information
     data: {
-        // Basic Information
         name: 'testButton'
     },
+    // Convert Builder to Component
     row: new ActionRowBuilder()
         .addComponents(button),
-    async execute (interaction) {
-        // What the button does when clicked
+    // What the button does when clicked
+    async execute(interaction) {
         interaction.message.delete();
     }
 }

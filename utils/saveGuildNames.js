@@ -25,7 +25,16 @@ async function createDirectory() {
     }
 }
 
-async function saveGuildNames(guildNames) {
+ async function saveGuildNames(client) {
+    // Get guilds from client
+    const guilds = client.guilds.cache;
+    // Make variable to keep track of guild names
+    var guildNames = '';
+    // Run through each guild to get name
+    for (const guild of guilds) {
+        guildNames = guildNames + guild[1].name + ',\n';
+    }
+
     // Wait for function to check if directory exists
     await createDirectory();
 

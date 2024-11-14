@@ -34,10 +34,10 @@
     },
     "defaultEmbed": {
         "colors": {
-            "primary": "#FF000",
-            "info": "#FF000",
-            "warn": "#FF000",
-            "error": "#FF000"
+            "primary": "FF000",
+            "info": "FF000",
+            "warn": "FF000",
+            "error": "FF000"
         },
         "thumbnail": "http://severation.site.nfoservers.com/media/severation/logo.png",
         "image": "http://severation.site.nfoservers.com/media/severation/logo.png"

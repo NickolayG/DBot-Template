@@ -29,7 +29,8 @@ module.exports = {
 		} else if (interaction.isButton()) {
 			const button = interaction.client.buttons.get(interaction.component.data.custom_id);
 
-			button.run(interaction);
+			button.execute(interaction);
+			console.log('Button executed: ' + button.data.name);
 		}
 	},
 };

@@ -15,6 +15,6 @@ const message_01 = {
     name: 'Test Button Message',
     description: 'Test Button Message',
     embed: new EmbedBuilder()
-        .setColor(defaultEmbed.colors.primary)
-        .setTitle()
+        .setColor('FF0000')
+        .setTitle('Test')
 }

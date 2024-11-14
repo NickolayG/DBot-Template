@@ -10,15 +10,8 @@ module.exports = {
         // Get guilds from client
         const guilds = client.guilds.cache;
 
-
-        // Make variable to keep track of guild names
-        var guildNames = '';
-        // Run through each guild to get name
-        for (const guild of guilds) {
-            guildNames = guildNames + guild[1].name + ',\n';
-        }
         // Run function to save guild names
-        saveGuildNames(guildNames);
+        saveGuildNames(client);
 
 
         // Make variable to keep track of total member count
