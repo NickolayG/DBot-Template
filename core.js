@@ -1,4 +1,4 @@
-const {Client, Events, GatewayIntentBits} = require('discord.js');
+const { Client, Events, GatewayIntentBits, Collection } = require('discord.js');
 
 const dotenv = require('dotenv');
 dotenv.config({path: 'config/secret.env'});
@@ -20,6 +20,11 @@ initializeEvents(client);
 
 const { intializeButtons } = require('./structure/handlers/buttonHandler.js');
 intializeButtons(client);
+
+const { intializeModals } = require('./structure/handlers/modalHandler.js');
+intializeModals(client);
+
+client.cooldowns = new Collection();
 
 client.login(process.env.DISCORD_TOKEN);
 

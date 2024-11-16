@@ -11,6 +11,6 @@ module.exports = {
 };
 
 const helpEmbed = new EmbedBuilder()
-    //.setColor('FFFF02')
+    .setColor('FFFF02')
     .setTitle('Test')
     .setDescription('Testing')
