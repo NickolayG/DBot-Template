@@ -1,4 +1,4 @@
-const { ButtonBuilder, ButtonStyle, ActionRowBuilder } = require('discord.js');
+const { ButtonBuilder, ButtonStyle, ActionRowBuilder, EmbedBuilder } = require('discord.js');
 
 const button = new ButtonBuilder()
         // Button Style
@@ -17,6 +17,7 @@ module.exports = {
     // What the button does when clicked
     async execute(interaction) {
         // Edit embed
-        console.log(interaction);
+        await interaction.reply({ content: "You've pressed the button!", ephemeral: true });
+        setTimeout(() => interaction.deleteReply(), 5000);
     }
 }
