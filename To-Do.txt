@@ -1,4 +1,0 @@
-Back-End Features:
-- Rate limit/cooldown per-user
-- Scheduler, like periodic announcements, reminders, and interval tasks.
-- Module System

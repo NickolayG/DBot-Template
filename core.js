@@ -25,6 +25,7 @@ const { intializeModals } = require('./structure/handlers/modalHandler.js');
 intializeModals(client);
 
 client.cooldowns = new Collection();
+client.buttonCooldown = new Collection();
 
 client.login(process.env.DISCORD_TOKEN);
 

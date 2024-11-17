@@ -56,16 +56,22 @@ module.exports = {
 
 		} else if (interaction.isButton()) {
 			// Cooldown Management
-			const buttonCooldown = new Collection();
+			const buttonCooldown = interaction.client.buttonCooldown;
+			const component = interaction.message.components[0].components[0].data.custom_id;
 
-			if (buttonCooldown.has(interaction.user.id)) {
+			if (!buttonCooldown.has(component)) {
+				buttonCooldown.set(component, new Collection());
+			}
+
+			const componentCooldown = buttonCooldown.get(component);
+
+			if (componentCooldown.has(interaction.user.id)) {
 				await interaction.reply({ content: 'Please wait before using button again.', ephemeral: true });
 				return;
 			} else {
-				buttonCooldown.set(interaction.user.id);
-				setTimeout(() => buttonCooldown.delete(interaction.user.id), 5000);
+				componentCooldown.set(interaction.user.id);
+				setTimeout(() => componentCooldown.delete(interaction.user.id), 500);
 			}
-
 
 			// Get Button
 			const button = interaction.client.buttons.get(interaction.component.data.custom_id);
