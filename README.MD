@@ -13,17 +13,10 @@ Meant as a boilerplate for further development.
 
 ## To-Do List / Features Planned
 
-- Rate limit/cooldown per-user
-- Scheduler, like periodic announcements, reminders, and interval tasks.
-- Module System
-- Auto Moderation
-- API Integration - API class
-
-- Modal & Button cooldown
-- Database Handler
-- Web Dashboard (Basic)
-
 Major:
+
+- Modules
+    - Enable or Disable modules easily with Database or JSON
 
 - Database Handler
     - Make everything dynamic so you can e.g set welcome channel id by command
@@ -50,6 +43,8 @@ Modules:
 - Auto Moderation
     - Mute users on specific words
 
+- API Integration 
+    - JS Class
 ---
 
 
