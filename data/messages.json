@@ -1,0 +1,79 @@
+{
+    "config": {
+        "defaultEmbed": {
+            "colors": {
+                "primary": "FF000",
+                "info": "FF000",
+                "error": "FF000"
+            },
+            "thumbnail": "http://severation.net/media/projects/severation/logo.png",
+            "image": "http://severation.net/media/projects/severation/logo.png"
+        }
+    },
+
+    "messages":  {
+        "helloMessage": {
+            "text": "Hello!",
+            "attachment": "url"
+        }
+    },
+
+    "embeds": {
+        "exampleEmbed": {
+            "color": "",
+            "title": "",
+            "url": "",
+            "author": {
+                "name": "${user_id} ${user_displayname}",
+                "iconURL": "${user_avatar}",
+                "url": ""
+            },
+            "description": "",
+            "thumbnail": "",
+            "image": "",
+            "timestamp": false,
+            "footer": {
+                "text": "",
+                "iconURL": ""
+            },
+            "fields": {
+                "fieldOne": {
+                    "name": "",
+                    "value": ""
+                },
+                "fieldTwo": {
+                    "name": "",
+                    "value": ""
+                }
+            }
+        },
+        "whitelistRequest": {
+            "color": "FF0000",
+            "title": "Test Embed",
+            "url": "",
+            "author": {
+                "name": "User: ${user_displayname}",
+                "iconURL": "${user_avatar}",
+                "url": ""
+            },
+            "description": "",
+            "thumbnail": "",
+            "image": "",
+            "timestamp": false,
+            "footer": {
+                "text": "",
+                "iconURL": ""
+            },
+            "fields": {
+                "fieldOne": {
+                    "name": "",
+                    "value": ""
+                },
+                "fieldTwo": {
+                    "name": "",
+                    "value": ""
+                }
+            }
+        }
+    }
+}

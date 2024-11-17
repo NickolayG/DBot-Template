@@ -1,6 +1,7 @@
 const { Events, Collection } = require('discord.js');
 const path = require('node:path');
 const fs = require('node:fs');
+const logger = require('../../utils/log.js');
 
 module.exports = {
 	name: Events.InteractionCreate,
@@ -54,6 +55,23 @@ module.exports = {
 				}
 			};
 
+		} else if (interaction.isAutocomplete()) {
+			// Autocomplete
+			const command = interaction.client.commands.get(interaction.commandName);
+
+			if (!command) {
+				// If command doesn't exist
+				logger.toConsole(`No command matching ${interaction.commandName} was found.`, 'ERROR');
+				return;
+			}
+
+			try {
+				// Try autocompletion
+				await command.autocomplete(interaction);
+			} catch (error) {
+				// Catch if error happens
+				logger.toConsole(`Could not autocomplete for ${interaction.commandName} command!`, 'ERROR');
+			}
 		} else if (interaction.isButton()) {
 			// Cooldown Management
 			const buttonCooldown = interaction.client.buttonCooldown;
