@@ -16,6 +16,7 @@ module.exports = {
         .addComponents(button),
     // What the button does when clicked
     async execute(interaction) {
-        interaction.message.delete();
+        // Edit embed
+        console.log(interaction);
     }
 }

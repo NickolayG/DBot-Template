@@ -6,11 +6,11 @@ module.exports = {
         .setName('button')
         .setDescription('testing'),
     async execute(interaction) {
+        const helpEmbed = new EmbedBuilder()
+        .setColor('FFFF02')
+        .setTitle('Test')
+        .setDescription('Testing')
+        
         await interaction.reply({ embeds: [helpEmbed], components: [btn.row] });
     },
 };
-
-const helpEmbed = new EmbedBuilder()
-    .setColor('FFFF02')
-    .setTitle('Test')
-    .setDescription('Testing')

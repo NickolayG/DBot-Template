@@ -55,6 +55,18 @@ module.exports = {
 			};
 
 		} else if (interaction.isButton()) {
+			// Cooldown Management
+			const buttonCooldown = new Collection();
+
+			if (buttonCooldown.has(interaction.user.id)) {
+				await interaction.reply({ content: 'Please wait before using button again.', ephemeral: true });
+				return;
+			} else {
+				buttonCooldown.set(interaction.user.id);
+				setTimeout(() => buttonCooldown.delete(interaction.user.id), 5000);
+			}
+
+
 			// Get Button
 			const button = interaction.client.buttons.get(interaction.component.data.custom_id);
 
