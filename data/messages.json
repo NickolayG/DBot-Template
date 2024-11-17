@@ -49,31 +49,35 @@
         },
         "whitelistRequest": {
             "color": "FF0000",
-            "title": "Test Embed",
+            "title": "Whitelist Request",
             "url": "",
             "author": {
-                "name": "User: ${user_displayname}",
-                "iconURL": "${user_avatar}",
+                "name": "",
+                "iconURL": "",
                 "url": ""
             },
-            "description": "",
-            "thumbnail": "",
-            "image": "",
+            "description": "**User:** ${user_displayname} ----------------------",
+            "thumbnail": "Username: testing24",
+            "image": "${user_avatar}",
             "timestamp": false,
             "footer": {
-                "text": "",
-                "iconURL": ""
+                "text": "test",
+                "iconURL": "${user_avatar}"
             },
             "fields": {
                 "fieldOne": {
-                    "name": "",
-                    "value": ""
+                    "name": "1",
+                    "value": "11"
                 },
                 "fieldTwo": {
-                    "name": "",
-                    "value": ""
+                    "name": "2",
+                    "value": "22"
                 }
-            }
+            },
+            "components": [
+                "whitelistApply",
+                "modalButton"
+            ]
         }
     }
 }

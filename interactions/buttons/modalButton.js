@@ -38,6 +38,8 @@ module.exports = {
     // Convert Builder to Component
     row: new ActionRowBuilder()
         .addComponents(button),
+    // Add normal component in case of grouping
+    component: button,
     // What the button does when clicked
     async execute(interaction) {
         await interaction.showModal(modal);
