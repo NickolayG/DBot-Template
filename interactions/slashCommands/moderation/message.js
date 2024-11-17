@@ -121,7 +121,7 @@ module.exports = {
                     // If it exists
                     const componentItem = require(`${componentPath}/${component}.js`);
                     // Puh the component to the array
-                    componentArray.push(componentItem.row);
+                    componentArray.push(componentItem.component);
                 } else {
                     logger.toConsole(`Cannot find component ${component}!`, 'ERROR');
                 }
