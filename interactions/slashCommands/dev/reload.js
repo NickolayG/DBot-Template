@@ -1,15 +1,15 @@
 const { SlashCommandBuilder, PermissionsBitField } = require('discord.js');
+const fs = require('node:fs');
+const path = require('node:path');
 const { development } = require('../../../config/config.json');
+const logger = require('../../../utils/log.js');
+
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('reload')
         .setDescription('Reload a command (Restricted to Developer)')
-        .setDefaultMemberPermissions(PermissionsBitField.Flags.Administrator)
-        .addStringOption(option =>
-            option.setName('command')
-            .setDescription('Name of command to reload.')
-            .setRequired(true)),
+        .setDefaultMemberPermissions(PermissionsBitField.Flags.Administrator),
         async execute(interaction) {
             // Check if user is developer, if not, disallow them.
             if (!development.dev_clientId.includes(interaction.user.id)) {
@@ -17,27 +17,33 @@ module.exports = {
                 return;
             }
 
-            // Reload command
-            const commandName = interaction.options.getString('command', true).toLowerCase();
-            const command = interaction.client.commands.get(commandName);
+            const commands = interaction.client.commands;
 
-            // Check if command exists
-            if (!command) {
-                await interaction.reply({ content: `Command '${commandName} does not exist!`, ephemeral: true});
-                return;
-            }
+            commands.forEach((command) => {
+                // Command Categories
+                const dirPath = path.resolve(__dirname, '../');
+                const categories = fs.readdirSync(dirPath);
 
-            // Wipe cache for the specific command
-            delete require.cache[require.resolve(`./${command.data.name}.js`)];
+                for (const category of categories) {
+                    const potentialPath = path.resolve(dirPath, category, `./${command.data.name}.js`);
+                    
+                    if (fs.existsSync(potentialPath)) {
+                        // Wipe cache for command
+                        delete require.cache[require.resolve(potentialPath)];
 
-            // Refresh the command
-            try {
-                const newCommand = require(`./${command.data.name}.js`);
-                interaction.client.commands.set(newCommand.data.name, newCommand);
-                await interaction.reply({ content: `Reloaded command '${newCommand.data.name}'!`, ephemeral: true});
-            } catch (error) {
-                console.error(error);
-                await interaction.reply({ content: `Error while reload command: '${command.data.name}'\nError: ${error.message}`, ephemeral: true});
-            }
+                        // Refresh Command
+                        try {
+                            const newCommand = require(potentialPath);
+                            interaction.client.commands.set(newCommand.data.name, newCommand);
+                            logger.toConsole(`Reloaded command ${command.data.name} successfully.`, 'INFO')
+                        } catch (error) {
+                            logger.toConsole(`Could not refresh command: ${command.data.name}`, 'ERROR');
+                            return interaction.reply(`Could not refresh command: ${command.data.name}!`);
+                        }
+                    }
+                }
+            });
+            await interaction.reply({ content: 'Reload completed!', ephemeral: true });
+            setTimeout(() => interaction.deleteReply(), 5000);
         }
 }

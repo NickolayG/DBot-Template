@@ -5,7 +5,7 @@ const path = require('node:path');
 module.exports = class Logger {
     /**
      * @param {string} msg
-     * @param {'info' | 'warn' | 'error'} level 
+     * @param {'INFO' | 'WARN' | 'ERROR'} level 
     */
     static toConsole(msg, level = 'info') {
         if (typeof msg != 'string') {
@@ -95,7 +95,6 @@ module.exports = class Logger {
                 if (error) {
                     throw new Error('Could not write to log file: ' + error);
                 }
-                console.log('Log entry written to log file');
             })
         }
     }
