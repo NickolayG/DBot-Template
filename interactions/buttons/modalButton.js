@@ -1,10 +1,10 @@
 const { ButtonBuilder, ButtonStyle, ActionRowBuilder, ModalBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
 
 const button = new ButtonBuilder()
-        // Button Style
-        .setCustomId('modalButton')
-        .setLabel('Apply')
-        .setStyle(ButtonStyle.Success);
+    // Button Style
+    .setCustomId('modalButton')
+    .setLabel('Apply')
+    .setStyle(ButtonStyle.Success);
 
 const modal = new ModalBuilder()
     .setCustomId('testModal')

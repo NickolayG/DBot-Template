@@ -67,6 +67,7 @@ module.exports = {
             // Reply with error message
             if (!jsonEmbed) {
                 await interaction.reply({ content: `Could not load ${option} embed!`, ephemeral: true});
+                return;
             }
 
             // Replace the embed with the updated one
@@ -126,17 +127,19 @@ module.exports = {
                     logger.toConsole(`Cannot find component ${component}!`, 'ERROR');
                 }
             })
-            console.log(componentArray)
+
             // Add each one into an Action Row Builder
             const row = new ActionRowBuilder().addComponents(componentArray);
 
-            await interaction.reply({ embeds: [outputEmbed], components: [row] });
-
-            // Debugging
-            //console.log(inputEmbed);
+            // Send the reply with embed and component if existing
+            if (componentArray.length >= 1) {
+                // Send reply with components
+                await interaction.reply({ embeds: [outputEmbed], components: [row] });
+            } else {
+                // Send reply without components
+                await interaction.reply({ embeds: [outputEmbed] });
+            }
         }
-        
-        
     }
 };
 
@@ -158,7 +161,7 @@ function replaceEmbed(embed, interaction) {
 
     // Function to recursively process objects
     function processObject(obj) {
-        for (var key in obj) {
+        for (const key in obj) {
             if (typeof obj[key] === 'string') {
                 obj[key] = replacer(obj[key]);
             } else if (typeof obj[key] === 'object' && obj[key] !== null) {

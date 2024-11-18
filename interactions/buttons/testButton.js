@@ -1,10 +1,10 @@
 const { ButtonBuilder, ButtonStyle, ActionRowBuilder, EmbedBuilder } = require('discord.js');
 
 const button = new ButtonBuilder()
-        // Button Style
-        .setCustomId('testButton')
-        .setLabel('Test Button')
-        .setStyle(ButtonStyle.Success);
+    // Button Style
+    .setCustomId('testButton')
+    .setLabel('Test Button')
+    .setStyle(ButtonStyle.Success);
 
 module.exports = {
     // Basic Information
