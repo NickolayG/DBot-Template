@@ -97,7 +97,6 @@ module.exports = {
             Object.keys(inputEmbed.fields).forEach((field) => {
                 // Redefine the variable with correct field
                 fieldKey = inputEmbed.fields[field];
-                console.log(fieldKey)
                 // Add a field to embed
                 outputEmbed.addFields({ name: fieldKey.name || null, value: fieldKey.value || null }); 
             });
